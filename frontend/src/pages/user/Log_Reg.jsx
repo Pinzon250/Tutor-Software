@@ -10,8 +10,8 @@ const Log_Reg = () => {
 
         <VantaNetBackground />
         
-      <div className="px-6 py-10 bg-white/20 rounded-xl backdrop-blur-sm relative z-10 text-center">
-        <h1 className="text-4xl md:text-5xl text-shadow-sm font-extrabold text-green-600 text-shadow-mb mb-3">
+      <div className="px-6 py-10 bg-white/20 rounded-xl backdrop-blur-sm relative z-10 text-center drop-shadow-xl/50">
+        <h1 className="text-4xl md:text-5xl text-shadow-sm font-extrabold text-green-500 text-shadow-green-600 mb-3">
           Bienvenido al Tutor Software de Redes
         </h1>
         <div className='text-xl font-medium text-white mb-10 w10 mx-auto max-w-md md:max-w-2xl mb-5'><p>Inicia sesion para obtener recursos de la asignatura de
