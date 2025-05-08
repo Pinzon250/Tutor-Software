@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { BsMicrosoft } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
 export default function RegisterForm() {
@@ -61,9 +60,9 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="-mt-3"> <button onClick={() => navigate('/')} className='cursor-pointer text-green-600 font-semibold hover:text-green-500 transition duration-300'>Regresar</button>
     <form onSubmit={handleSubmit} className="space-y-4 p-4 max-w-sm mx-auto">
-      <h2 className="text-3xl font-bold text-green-600 text-center">Crear cuenta</h2>
+        <button onClick={() => navigate('/')} className=''>Regresar</button>
+      <h2 className="text-2xl font-bold text-center">Crear cuenta</h2>
 
       <input
         type="text"
@@ -71,7 +70,7 @@ export default function RegisterForm() {
         placeholder="Nombre"
         value={form.name}
         onChange={handleChange}
-        className="border rounded border-gray-300 w-full p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"
+        className="w-full border p-2 rounded"
       />
 
       <input
@@ -80,7 +79,7 @@ export default function RegisterForm() {
         placeholder="Correo electrónico"
         value={form.email}
         onChange={handleChange}
-        className="border rounded border-gray-300 w-full p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"
+        className="w-full border p-2 rounded"
       />
 
       <div className="relative">
@@ -90,7 +89,7 @@ export default function RegisterForm() {
           placeholder="Contraseña"
           value={form.password}
           onChange={handleChange}
-          className="border rounded border-gray-300 w-full p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"
+          className="w-full border p-2 rounded"
         />
         <span
           className="absolute right-3 top-3 cursor-pointer"
@@ -106,10 +105,10 @@ export default function RegisterForm() {
         placeholder="Confirmar contraseña"
         value={form.confirmPassword}
         onChange={handleChange}
-        className="border rounded border-gray-300 w-full p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"
+        className="w-full border p-2 rounded"
       />
 
-      <button type="submit" className="w-full cursor-pointer bg-green-600 hover:bg-green-500 text-white font-semibold py-2 px-4 rounded-lg rounded transition duration-300">
+      <button type="submit" className="bg-green-600 text-white w-full p-2 rounded">
         Siguiente
       </button>
 
@@ -119,27 +118,5 @@ export default function RegisterForm() {
         </p>
       )}
     </form>
-    <aside className=" text-sm text-gray-600 text-center">
-            Ya tienes una cuenta?
-            <a href="/login" className="text-green-600 cursor-pointer hover:text-green-500 font-semibold ml-1 transition duration-300">Inicia Sesion</a>
-
-
-            <div className="flex items-center my-3">
-                <div className="flex-grow border-t border-black/30"></div>
-                <span className="mx-4 text-gray-500">O</span>
-                <div className="flex-grow border-t border-black/30"></div>
-            </div>
-
-
-            <button className="flex cursor-pointer items-center bg-white justify-center w-full border border-gray-300 p-2 rounded-lg shadow-sm hover:bg-gray-100 transition">
-                <BsMicrosoft size={24} className="mr-2" />
-                Registrate con Microsoft 365
-            </button>
-            <p className='text-center text-gray-500 pt-4'>
-                Al registrarte estas de acuerdo con nuestros <a href="/terms" className="text-green-600 hover:text-green-500 font-semibold transition duration-300">Terminos de servicio
-                </a> y <a href="/privacy" className="text-green-600 hover:text-green-500 font-semibold transition duration-300">Politica de privacidad</a>
-            </p>
-        </aside>
-    </div>
   );
 }

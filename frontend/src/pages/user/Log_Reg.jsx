@@ -21,13 +21,13 @@ const Log_Reg = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={() => navigate('/login')}
-            className="px-6 py-3 bg-white/70 backdrop-blur-sm text-gray-700 rounded-xl shadow-md hover:bg-white/30 transition duration-200 text-lg w-50"
+            className="cursor-pointer px-6 py-3 bg-white/30 backdrop-blur-sm text-gray-700 rounded-xl shadow-md hover:bg-white/70 transition duration-200 text-lg w-50"
           >
             Iniciar Sesión
           </button>
           <button
             onClick={() => navigate('/register')}
-            className="px-6 py-3 bg-green-600 text-white rounded-xl shadow-md hover:bg-green-800 transition duration-200 text-lg w-50"
+            className="cursor-pointer px-6 py-3 bg-green-600 text-white rounded-xl shadow-md hover:bg-green-500 transition duration-200 text-lg w-50"
           >
             Registrarse
           </button>

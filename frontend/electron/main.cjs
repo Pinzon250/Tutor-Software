@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
-const isDev = require("electron-is-dev");
+const isDev = app.isPackaged ? false : require("electron-is-dev");
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -12,10 +12,22 @@ function createWindow() {
   });
 
   if (isDev) {
-    win.loadURL("http://localhost:5173"); // Vite dev server
+    win.loadURL("http://localhost:5173");
   } else {
-    win.loadFile(path.join(__dirname, "../dist/index.html")); // build de Vite
+    // En producción, index.html está en la raíz del app.asar
+    win.loadURL(`file://${path.join(__dirname, "../index.html")}`);
   }
+
+  // Para depuración, puedes quitarlo luego
+  win.webContents.openDevTools();
 }
 
 app.whenReady().then(createWindow);
+
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") app.quit();
+});
+
+app.on("activate", () => {
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});

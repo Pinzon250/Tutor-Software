@@ -1,20 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ForgotForm = () => {
+    const navigate = useNavigate();
     return (
-        <div>
-            <h2 className='text-2xl font-bold text-gray-800 mb-6'>Forgot Password</h2>
+        <div className='-mt-3 '><button className='font-semibold text-green-600 hover:text-green-500' onClick={() => navigate('/')}>Regresar</button>
+            <h2 className='mt-4 text-3xl text-center text-green-600 font-bold text-gray-800 mb-6'>Olvidaste tu contraseña</h2>
             <form className='space-y-4'>
                 <input 
                     type="email" 
                     placeholder='Enter your email' 
-                    className='w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400'
+                    className='border rounded border-gray-300 w-full p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none'
                 />
                 <button
                     type='submit'
-                    className='w-full bg-purple-500 hover:bg-purple-700 text-white py-3 rounded-lg transition'
+                    className='w-full bg-green-600 hover:bg-green-500 text-white py-3 rounded-lg transition'
                 >
-                    Send Reset Code
+                    Enviar codigo de verificación
                 </button>
             </form>
         </div>
