@@ -17,9 +17,6 @@ function createWindow() {
     // En producción, index.html está en la raíz del app.asar
     win.loadURL(`file://${path.join(__dirname, "../index.html")}`);
   }
-
-  // Para depuración, puedes quitarlo luego
-  win.webContents.openDevTools();
 }
 
 app.whenReady().then(createWindow);
