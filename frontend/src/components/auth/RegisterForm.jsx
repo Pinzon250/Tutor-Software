@@ -132,7 +132,7 @@ export default function RegisterForm() {
 
 
             <button className="flex cursor-pointer items-center bg-white justify-center w-full border border-gray-300 p-2 rounded-lg shadow-sm hover:bg-gray-100 transition">
-                <BsMicrosoft size={24} className="mr-2" />
+                <BsMicrosoft size={24} className="mr-2 text-green-600" />
                 Registrate con Microsoft 365
             </button>
             <p className='text-center text-gray-500 pt-4'>
