@@ -27,12 +27,13 @@ def create_user(user: UserCreate, db: Session = Depends(get_db)):
     existing_user = db.query(db_users.User).filter(db_users.User.email == user.email).first()
     if existing_user:
         raise HTTPException(status_code=400, detail="Email already registered")
-    
     # Create a new user
     new_user = UserModel (
         name=user.name,
         email=user.email,
-        password=hash_password(user.password)
+        password=hash_password(user.password),
+        cedula=user.cedula,
+        grupo=user.grupo
     )
     db.add(new_user)
     db.commit()
@@ -50,7 +51,7 @@ def login_user(user_login: UserLogin, db: Session = Depends(get_db)):
             detail="User not found"
         )
     
-    token = create_access_token(data={"sub": user.email})
+    token = create_access_token(data={"sub": user.email, "name": user.name})
     return {"access_token": token, "token_type": "bearer"}
 
 # Get User by ID

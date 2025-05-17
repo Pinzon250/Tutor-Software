@@ -32,7 +32,7 @@ const VantaNetBackground = () => {
    }, [vantaEffect]);
 
     return (
-  <div ref={vantaRef} className="w-full h-screen absolute top-0 left-0 -z-10" />
+  <div ref={vantaRef} className="blur-[2px] w-full h-screen absolute top-0 left-0 -z-10" />
 );
 };
 

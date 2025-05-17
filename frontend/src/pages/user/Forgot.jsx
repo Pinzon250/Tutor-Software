@@ -1,5 +1,4 @@
 import ForgotForm from '../../components/auth/ForgotForm';
-import React from 'react';
 import VantaNetBackground from '../../components/backgrounds/VantaNetBackground';
 
 const Forgot = () => {

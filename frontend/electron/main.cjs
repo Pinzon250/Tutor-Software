@@ -6,6 +6,10 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1780,
     height: 1050,
+    icon: path.join(__dirname, "../public/Tutor.ico"),
+    autoHideMenuBar: true,
+    backgroundColor: "#2e2c29",
+    titleBarStyle: "hiddenInset",
     webPreferences: {
       contextIsolation: true,
     },
@@ -14,8 +18,9 @@ function createWindow() {
   if (isDev) {
     win.loadURL("http://localhost:5173");
   } else {
-    // En producción, index.html está en la raíz del app.asar
+
     win.loadURL(`file://${path.join(__dirname, "../index.html")}`);
+    win.webContents.openDevTools();
   }
 }
 

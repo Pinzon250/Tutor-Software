@@ -1,16 +1,27 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import VantaNetBackground from '../../components/backgrounds/VantaNetBackground';
 
 const Log_Reg = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const toastShownRef = useRef(false);
+
+  useEffect(() => {
+    if (location.state?.message && !toastShownRef.current) {
+      toast.error(location.state.message);
+      toastShownRef.current = true;
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location, navigate]);
 
   return (
     <div className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden px-4">
 
         <VantaNetBackground />
         
-      <div className="px-6 py-10 bg-white/40 rounded-xl backdrop-blur-sm relative z-10 text-center">
+      <div className="px-6 py-10 bg-white/20 rounded-xl backdrop-blur-[20px] relative z-10 text-center">
         <h1 className="text-4xl md:text-5xl text-shadow-sm font-extrabold text-green-500 text-shadow-green-600 mb-3">
           Bienvenido al Tutor Software de Redes
         </h1>

@@ -20,6 +20,8 @@ class UserCreate(BaseModel):
     name: str
     email: EmailStr
     password: str
+    cedula: int
+    grupo: str
 
 # Schema of User Login
 class UserLogin(BaseModel):
