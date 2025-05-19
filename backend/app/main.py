@@ -1,6 +1,8 @@
 from app.routes import user
 from app.database.db import Base, engine
 from fastapi.middleware.cors import CORSMiddleware
+from app.routes.modulos import content
+
 
 from fastapi import FastAPI
 
@@ -18,7 +20,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(content.router)
 app.include_router(user.router)
+
 
 
 @app.get("/")
