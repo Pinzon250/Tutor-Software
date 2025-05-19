@@ -11,7 +11,7 @@ import Content from './pages/Modulos/Content';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Layout from './layouts/layout';
-
+import InformacionContenido from './pages/Modulos/Content/InformacionContenido';
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
         <Route path="/login" element={<PublicRoute ><Login /></PublicRoute>} />
         <Route path="/register" element={<PublicRoute ><Register /></PublicRoute>} />
         <Route path="/content" element={<ProtectedRoute ><Layout><Content /></Layout></ProtectedRoute>} />
+        <Route path="/content/:tema" element={<ProtectedRoute ><Layout><InformacionContenido /></Layout></ProtectedRoute>} />
         <Route path="/forgot" element={<Forgot /> }/>
       </Routes>
       <ToastContainer />
