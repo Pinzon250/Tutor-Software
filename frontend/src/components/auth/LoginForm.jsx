@@ -19,8 +19,8 @@ function LoginForm() {
     try {
       const response = await axios.post('http://localhost:8000/user/login',
      {
-       email: form.username,
-       password: form.password,
+       correo: form.username,
+       contraseña: form.password,
      },
      {
       headers: {

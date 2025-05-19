@@ -7,7 +7,7 @@ export default function Login() {
         
         <VantaNetBackground />
 
-      <div className="backdrop-blur-[10px] bg-white/40 p-8 rounded-2xl shadow-lg w-full max-w-md">
+      <div className="backdrop-blur-[20px] bg-white/40 p-8 rounded-2xl shadow-lg w-full max-w-md">
             <LoginForm />
         </div>
         </div>

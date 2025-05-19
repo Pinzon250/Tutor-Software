@@ -7,7 +7,7 @@ export default function Register() {
 
       <VantaNetBackground />
 
-      <div className="backdrop-blur-sm bg-white/30 p-8 rounded-2xl shadow-lg w-full max-w-md">
+      <div className="backdrop-blur-[20px] bg-white/30 p-8 rounded-2xl shadow-lg w-full max-w-2xl">
         <RegisterForm />
       </div>
     </div>

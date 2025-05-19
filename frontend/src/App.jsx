@@ -7,9 +7,10 @@ import Register from './pages/user/Register';
 import Forgot from './pages/user/Forgot';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import PublicRoute from './components/auth/PublicRoute';
+import Content from './pages/Modulos/Content';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
+import Layout from './layouts/layout';
 
 
 function App() {
@@ -18,9 +19,10 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Log_Reg/>} />
-        <Route path='/home' element={<ProtectedRoute ><Home /></ProtectedRoute>} />
+        <Route path='/home' element={<ProtectedRoute ><Layout><Home /></Layout></ProtectedRoute>} />
         <Route path="/login" element={<PublicRoute ><Login /></PublicRoute>} />
         <Route path="/register" element={<PublicRoute ><Register /></PublicRoute>} />
+        <Route path="/content" element={<ProtectedRoute ><Layout><Content /></Layout></ProtectedRoute>} />
         <Route path="/forgot" element={<Forgot /> }/>
       </Routes>
       <ToastContainer />
