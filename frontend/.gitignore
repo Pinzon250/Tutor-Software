@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+out/
+
+# Ignore the backend directory
+backend/
