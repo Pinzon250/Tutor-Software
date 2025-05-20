@@ -10,3 +10,6 @@ python-jose[cryptography]
 google-generativeai
 pyasn1==0.4.8
 google-api-python-client
+pyinstaller
+aiofiles
+jinja2

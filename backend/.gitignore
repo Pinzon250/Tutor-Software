@@ -24,3 +24,8 @@ env/
 
 #Byte-compiled files
 *.pyc
+
+# Distribution / packaging
+build/
+dist/
+*.spec
