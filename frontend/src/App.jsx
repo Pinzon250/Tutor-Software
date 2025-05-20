@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Log_Reg from './pages/user/Log_Reg';
 import Home from './pages/Home';
@@ -14,21 +14,20 @@ import Layout from './layouts/layout';
 import InformacionContenido from './pages/Modulos/Content/InformacionContenido';
 
 function App() {
-
   return (
-    <Router>
+    <>
       <Routes>
-        <Route path='/' element={<Log_Reg/>} />
-        <Route path='/home' element={<ProtectedRoute ><Layout><Home /></Layout></ProtectedRoute>} />
-        <Route path="/login" element={<PublicRoute ><Login /></PublicRoute>} />
-        <Route path="/register" element={<PublicRoute ><Register /></PublicRoute>} />
-        <Route path="/content" element={<ProtectedRoute ><Layout><Content /></Layout></ProtectedRoute>} />
-        <Route path="/content/:tema" element={<ProtectedRoute ><Layout><InformacionContenido /></Layout></ProtectedRoute>} />
-        <Route path="/forgot" element={<Forgot /> }/>
+        <Route path='/' element={<Log_Reg />} />
+        <Route path='/home' element={<ProtectedRoute><Layout><Home /></Layout></ProtectedRoute>} />
+        <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
+        <Route path='/register' element={<PublicRoute><Register /></PublicRoute>} />
+        <Route path='/content' element={<ProtectedRoute><Layout><Content /></Layout></ProtectedRoute>} />
+        <Route path='/content/:tema' element={<ProtectedRoute><Layout><InformacionContenido /></Layout></ProtectedRoute>} />
+        <Route path='/forgot' element={<Forgot />} />
       </Routes>
       <ToastContainer />
-    </Router>
+    </>
   );
 }
 
-export default App
+export default App;
