@@ -29,7 +29,7 @@ export default function Header({ setIsOpen }) {
     navigate("/"); 
   };
   return (
-    <header className="fixed w-screen flex items-center justify-between bg-green-900/50 backdrop-blur-[30px] shadow px-4 py-3 mb-4 z-1">
+    <header className="fixed w-screen flex items-center justify-between bg-green-900/50 backdrop-blur-[30px] shadow px-4 py-3 mb-4 z-20">
       <div className="flex items-center space-x-3">
         <button className="lg:hidden" onClick={() => setIsOpen(true)}>
           <Bars3Icon className="h-6 w-6 text-gray-700" />

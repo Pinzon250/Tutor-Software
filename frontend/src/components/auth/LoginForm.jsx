@@ -31,7 +31,7 @@ function LoginForm() {
 
 
       localStorage.setItem("token", response.data.access_token);
-      window.location.href = "/home";
+      navigate("/home");
     } catch (err) {
       setError("Credenciales inválidas");
     }
@@ -85,7 +85,7 @@ function LoginForm() {
       <aside className="mt-4 text-sm text-gray-600">
         <p className="flex justify-between -mt-5">
           <a
-            href="/forgot"
+            onClick={() => navigate("/forgot")}
             className="text-green-600 ml-5 cursor-pointer hover:text-green-500 font-semibold ml-1 transition duration-300"
           >
             Olvista la contraseña?
@@ -93,7 +93,7 @@ function LoginForm() {
           <p>
             No tienes cuenta?
             <a
-              href="/Register"
+              onClick={() => navigate("/register")}
               className="text-green-600 mr-5 cursor-pointer hover:text-green-500 font-semibold ml-1 transition duration-300"
             >
               Registrate

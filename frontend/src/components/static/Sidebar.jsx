@@ -13,10 +13,10 @@ import { Link } from 'react-router-dom';
 
 const navigation = [
   { name: 'Inicio', icon: HomeIcon, to: '/home' },
-  { name: 'Contenido', icon: BookOpenIcon, to: '/team' },
-  { name: 'Evaluaciones', icon: ClipboardDocumentCheckIcon, to: '/projects' },
-  { name: 'Ejercicios', icon: Square3Stack3DIcon, to: '/calendar' },
-  { name: 'Progreso', icon: ChartBarIcon, to: '/documents' },
+  { name: 'Contenido', icon: BookOpenIcon, to: '/content' },
+  { name: 'Evaluaciones', icon: ClipboardDocumentCheckIcon, to: '/test' },
+  { name: 'Ejercicios', icon: Square3Stack3DIcon, to: '/activities' },
+  { name: 'Progreso', icon: ChartBarIcon, to: '/progress' },
 ];
 
 const teams = ['Heroicons', 'Tailwind Labs', 'Workcation'];
@@ -26,7 +26,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
     <div className={`fixed inset-y-0 left-0 w-64 bg-green-900/50 h-screen backdrop-blur-[30px] text-white transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 z-50 lg:translate-x-0 lg:static lg:unfixed `}>
       <div className="flex items-center justify-between p-4">
         <img
-            src="/tutor.svg"
+            src="/assets/tutor.svg"
             alt="Logo"
             className="h-8 w-auto"
         />

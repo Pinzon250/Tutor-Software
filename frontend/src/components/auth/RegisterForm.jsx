@@ -132,7 +132,7 @@ export default function RegisterForm() {
               name="tipoDocumento"
               value={form.tipoDocumento}
               onChange={handleChange}
-              className="border rounded border-gray-300 w-full md:w-1/3 p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"
+              className="cursor-pointer border rounded border-gray-300 w-full md:w-1/3 p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"
             >
               <option value="">Tipo de documento</option>
               <option value="C.C">C.C.</option>
@@ -153,7 +153,7 @@ export default function RegisterForm() {
             name="cargo"
             value={form.cargo}
             onChange={handleChange}
-            className="border rounded border-gray-300 w-full p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"
+            className="cursor-pointer border rounded border-gray-300 w-full p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"
           >
             <option value="">Seleccionar Cargo</option>
             <option value="Estudiante">Estudiante</option>
@@ -165,7 +165,7 @@ export default function RegisterForm() {
               name="grupo"
               value={form.grupo}
               onChange={handleChange}
-              className="border rounded border-gray-300 w-full p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"
+              className="cursor-pointer border rounded border-gray-300 w-full p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"
             >
               <option value="">Grupo</option>
               <option value="S4A">S4A</option>
@@ -225,7 +225,7 @@ export default function RegisterForm() {
 
         <button
           type="submit"
-          className="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+          className="cursor-pointer w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
         >
           Registrarse
         </button>
@@ -245,8 +245,8 @@ export default function RegisterForm() {
       <aside className="text-sm text-gray-600 text-center ">
         Ya tienes una cuenta?
         <a
-          href="/login"
-          className="text-green-600 hover:text-green-500 font-semibold ml-1 transition duration-300"
+          onClick={() => navigate("/login")}
+          className="cursor-pointer text-green-600 hover:text-green-500 font-semibold ml-1 transition duration-300"
         >
           Inicia Sesión
         </a>
