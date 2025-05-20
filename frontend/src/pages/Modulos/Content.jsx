@@ -110,8 +110,6 @@ export default function Contenidos() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }
