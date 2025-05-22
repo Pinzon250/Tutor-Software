@@ -69,7 +69,9 @@ export default function Home() {
               </div>
              
 
-              <div className="select-none bg-white/5 backdrop-blur-[30px] hover:scale-105 hover:bg-white/10 hover:shadow-lg transition-all duration-300 p-6 rounded-xl border border-green-900 shadow-md">
+              <div 
+              onClick={() => navigate("/Test")}
+              className="select-none cursor-pointer bg-white/5 backdrop-blur-[30px] hover:scale-105 hover:bg-white/10 hover:shadow-lg transition-all duration-300 p-6 rounded-xl border border-green-900 shadow-md">
                 <h2 className="text-xl font-semibold mb-2">Realizar evaluaciones</h2>
                 <p className="text-sm text-white/80">
                   Pon a prueba tus conocimientos mediante pruebas y cuestionarios.

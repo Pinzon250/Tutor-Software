@@ -19,16 +19,16 @@ const navigation = [
   { name: 'Progreso', icon: ChartBarIcon, to: '/progress' },
 ];
 
-const teams = ['Heroicons', 'Tailwind Labs', 'Workcation'];
+const teams = [''];
 
 export default function Sidebar({ isOpen, setIsOpen }) {
   return (
     <div className={`fixed inset-y-0 left-0 w-64 bg-green-900/50 h-screen backdrop-blur-[30px] text-white transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 z-50 lg:translate-x-0 lg:static lg:unfixed `}>
       <div className="flex items-center justify-between p-4">
         <img
-            src="/assets/tutor.svg"
+            src="/tutor.svg"
             alt="Logo"
-            className="h-8 w-auto"
+            className="h-10 ml-5 w-auto"
         />
         <button className="lg:hidden" onClick={() => setIsOpen(false)}>
           <XMarkIcon className="h-6 w-6 text-white" />

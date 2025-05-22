@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { BookOpen } from "lucide-react";
 import VantaRingsBackground from "../../components/backgrounds/VantaRingsBackground";
 import Footer from "../../components/static/Footer";
@@ -21,6 +22,7 @@ const temas = [
 ];
 
 export default function Contenidos() {
+  const navigate = useNavigate();
   const [contenido, setContenido] = useState(null);
   const [cargando, setCargando] = useState(false);
   const [error, setError] = useState("");
@@ -50,8 +52,15 @@ export default function Contenidos() {
   return (
     <div className="relative min-h-screen flex flex-col text-white">
       <VantaRingsBackground />
+      <div 
+         onClick={() => navigate('/home')} 
+         className="absolute top-4 left-4 cursor-pointer text-white bg-green-600 hover:bg-green-700 rounded-full p-2 w-30 mt-30 text-center shadow-lg transition duration-300 z-40"
+        >
+        Regresar
+        </div>
+
       <main className="flex-1 p-6 relative z-10 mb-20">
-        <div className="max-w-6xl mx-auto mt-10">
+        <div className="max-w-5xl mx-auto mt-10">
           <h1 className="text-4xl font-bold pt-10 mb-4 flex items-center gap-2">
             <BookOpen size={32} /> Contenidos de Aprendizaje
           </h1>
@@ -75,38 +84,6 @@ export default function Contenidos() {
                 </Link>
               </div>
             ))}
-          </div>
-
-          {/* Resultado de contenido */}
-          <div className="mt-12">
-            {cargando && (
-              <p className="text-yellow-400">Cargando contenido...</p>
-            )}
-            {error && <p className="text-red-500">Error: {error}</p>}
-            {contenido && (
-              <div className="mt-6 p-6 bg-white/5 border border-white/10 rounded-xl">
-                <h2 className="text-3xl font-bold mb-4">{contenido.tema}</h2>
-                <p className="text-white/80 mb-6">{contenido.descripcion}</p>
-
-                <h3 className="text-xl font-semibold mb-2">
-                  Videos sugeridos:
-                </h3>
-                <ul className="list-disc pl-6 space-y-1">
-                  {contenido.videos.map((video, idx) => (
-                    <li key={idx}>
-                      <a
-                        href={video.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-green-400 hover:underline"
-                      >
-                        {video.titulo}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </div>
         </div>
       </main>
