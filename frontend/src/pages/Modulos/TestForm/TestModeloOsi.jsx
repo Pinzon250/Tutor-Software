@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import VantaRingsBackground from "../../../components/backgrounds/VantaRingsBackground";
 
 const TestModeloOsi = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [preguntas, setPreguntas] = useState([]);
   const [respuestas, setRespuestas] = useState([]);
@@ -62,14 +63,20 @@ const TestModeloOsi = () => {
   return (
     <div className="relative min-h-screen flex flex-col text-white">
       <VantaRingsBackground />
-      <div className="mt-20 border border-green-900 w-300 index-0 m-auto p-20 backdrop-blur-[30px] rounded-xl">
-        <h1 className="text-5xl font-bold text-center mb-4">Evaluación #{id}</h1>
+      <div 
+         onClick={() => navigate('/home')} 
+         className="absolute top-4 left-4 cursor-pointer text-white bg-green-600 hover:bg-green-700 rounded-full p-2 w-30 mt-30 text-center shadow-lg transition duration-300 z-40"
+        >
+        Regresar
+        </div>
+      <div className="mt-30 border border-green-900 w-200 index-0 m-auto p-10 backdrop-blur-[30px] rounded-xl">
+        <h1 className="text-5xl font-bold text-center mb-4">Evaluación Modelo OSI</h1>
 
         {puntuacion === null ? (
-          <form className="space-y-6">
+          <form className="space-y-6 mt-10">
             {preguntas.map((preg, i) => (
               <div key={i}>
-                <p className="font-semibold">{i + 1}. {preg.pregunta}</p>
+                <p className="font-semibold text-xl pb-2">{i + 1}. {preg.pregunta}</p>
                 <div className="space-y-1 ml-4 mt-2">
                   {preg.opciones.map((op, j) => (
                     <label key={j} className="block">
@@ -89,15 +96,15 @@ const TestModeloOsi = () => {
             <button
               type="button"
               onClick={enviar}
-              className="mt-4 px-4 hover:bg-green-400 py-2 bg-green-700 text-white rounded"
+              className="mt-4 px-4 ml-65 transition hover:bg-green-500 py-2 cursor-pointer bg-green-600 text-white rounded"
             >
               Enviar evaluación
             </button>
           </form>
         ) : (
           <div className="mt-6">
-            <h2 className="text-xl font-bold">Tu puntuación: {puntuacion}%</h2>
-            <p>
+            <h2 className="text-xl text-center font-bold">Tu puntuación: {puntuacion}%</h2>
+            <p className="text-center">
               {puntuacion >= 80
                 ? "¡Excelente! Has subido de nivel. 🏆"
                 : "Puedes volver a intentarlo para mejorar tu puntuación."}
