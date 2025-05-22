@@ -16,7 +16,7 @@ const navigation = [
   { name: 'Contenido', icon: BookOpenIcon, to: '/content' },
   { name: 'Evaluaciones', icon: ClipboardDocumentCheckIcon, to: '/test' },
   { name: 'Ejercicios', icon: Square3Stack3DIcon, to: '/activities' },
-  { name: 'Progreso', icon: ChartBarIcon, to: '/progress' },
+  { name: 'Progreso', icon: ChartBarIcon, to: '/home' },
 ];
 
 const teams = [''];
