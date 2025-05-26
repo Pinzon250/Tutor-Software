@@ -27,3 +27,6 @@ out/
 
 # Ignore the backend directory
 backend/
+
+# Ignore pending work
+to do.txt
