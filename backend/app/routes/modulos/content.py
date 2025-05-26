@@ -46,31 +46,57 @@ def obtener_contenido(tema: str):
                 }
             ]
         },
+      "Areas de Cobertura de Redes": {
+        "descripcion": "Este tema explica los tipos de redes según su cobertura geográfica.",
+        "Definicion": (
+            "Una red informática es un sistema interconectado de dispositivos electrónicos, como computadoras, "
+            "servidores, dispositivos móviles y otros dispositivos, que se comunican entre sí para compartir recursos, "
+            "transmitir datos y permitir la colaboración en línea. "
+            "Este sistema de dispositivos conectados, se pueden diferenciar entre sí según las dimensiones de red, "
+            "o dicho de otra manera, de qué tanto espacio geográfico ocupan."
+        ),
+        "TiposDeRed": [
+            {
+                "nombre": "Personal Area Networks (PAN)",
+                "descripcion": "Red de área personal, usada para conectar dispositivos cercanos a un individuo, como un teléfono móvil y una laptop."
+            },
+            {
+                "nombre": "Local Area Networks (LAN)",
+                "descripcion": "Red de área local, generalmente limitada a un solo edificio o campus, como la red de una oficina o escuela."
+            },
+            {
+                "nombre": "Metropolitan Area Networks (MAN)",
+                "descripcion": "Red de área metropolitana, que abarca una ciudad o región, conectando múltiples LANs."
+            },
+            {
+                "nombre": "Wide Area Networks (WAN)",
+                "descripcion": "Red de área amplia, que cubre grandes distancias geográficas, como las redes de una corporación internacional."
+            },
+            {
+                "nombre": "Global Area Networks (GAN)",
+                "descripcion": "Red de área global, que conecta redes en todo el mundo, como Internet."
+            }
+        ],
+        "videos": [
+            {
+                "titulo": "Tipos de Redes: PAN, LAN, MAN, WAN, GAN",
+                "videoId": "1",
+                "url": "https://www.youtube.com/watch?v=abc123456"
+            },
+            {
+                "titulo": "Diferencias entre LAN, WAN y MAN",
+                "videoId": "2",
+                "url": "https://www.youtube.com/watch?v=def987654"
+            }
+        ]
     }
+}
 
+@router.get("/contenidos/{tema}")
+def obtener_contenido(tema: str):
     contenido = contenidos_estaticos.get(tema)
     if not contenido:
         raise HTTPException(status_code=404, detail="Contenido no disponible")
+    return contenido
 
-    return {
-        "tema": tema,
-        "descripcion": contenido["descripcion"],
-        "Definicion": contenido["Definicion"],
-        "Definicion2": contenido["Definicion2"],
-        "Capa1": contenido["Capa1"],
-        "DefinicionCapa1": contenido["DefinicionCapa1"],
-        "Capa2": contenido["Capa2"],
-        "DefinicionCapa2": contenido["DefinicionCapa2"],
-        "Capa3": contenido["Capa3"],
-        "DefinicionCapa3": contenido["DefinicionCapa3"],
-        "Capa4": contenido["Capa4"],
-        "DefinicionCapa4": contenido["DefinicionCapa4"],
-        "Capa5": contenido["Capa5"],
-        "DefinicionCapa5": contenido["DefinicionCapa5"],
-        "Capa6": contenido["Capa6"],
-        "DefinicionCapa6": contenido["DefinicionCapa6"],
-        "Capa7": contenido["Capa7"],
-        "DefinicionCapa7": contenido["DefinicionCapa7"],
 
-        "videos": contenido["videos"],
-    }
