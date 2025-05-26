@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState({ correo: '', contraseña: '' });
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -15,27 +15,36 @@ function LoginForm() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:8000/user/login',
-     {
-       correo: form.username,
-       contraseña: form.password,
-     },
-     {
-      headers: {
-        'Content-Type': 'application/json',
+  e.preventDefault();
+  try {
+    const response = await axios.post(
+      'http://localhost:8000/user/login',
+      {
+        correo: form.correo,
+        contraseña: form.contraseña,
       },
-    }
-);
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
 
+    const { access_token, user } = response.data;
 
-      localStorage.setItem("token", response.data.access_token);
+    localStorage.setItem("token", access_token);
+    localStorage.setItem("user", JSON.stringify(user)); // guardar datos del usuario
+
+    if (user.cargo.toLowerCase() === "profesor") {
+      navigate("/admin");
+    } else {
       navigate("/home");
-    } catch (err) {
-      setError("Credenciales inválidas");
     }
-  };
+  } catch (err) {
+    setError("Credenciales inválidas");
+  }
+};
+
 
   return (
     <div className="-mt-3 ">
@@ -51,14 +60,14 @@ function LoginForm() {
         </h2>
         <input
           type="text"
-          name="username"
+          name="correo"
           placeholder="Correo"
           onChange={handleChange}
           className="border rounded border-gray-300 w-full p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"
         />
         <input
           type="password"
-          name="password"
+          name="contraseña"
           placeholder="Contraseña"
           onChange={handleChange}
           className="border rounded border-gray-300 w-full p-2 bg-white/50 focus:ring-2 focus:ring-green-600 outline-none"

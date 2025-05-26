@@ -1,13 +1,19 @@
-import { Navigate } from 'react-router-dom';
+// ProtectedRoute.jsx
+import { Navigate } from "react-router-dom";
 
-function ProtectedRoute({ children }) {
-  const token = localStorage.getItem('token');
+const ProtectedRoute = ({ children, role }) => {
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user"));
 
   if (!token) {
-    return (<Navigate to="/" replace state={{ message: "Necesitas loguearte para acceder a esta vista" }} />);
+    return <Navigate to="/login" />;
   }
 
-  return children;
+  if (role && user?.cargo.toLowerCase() !== role.toLowerCase()) {
+  return <Navigate to="/home" />;
 }
+
+  return children;
+};
 
 export default ProtectedRoute;

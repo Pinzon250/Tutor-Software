@@ -48,7 +48,7 @@ export default function RegisterForm() {
       setMessage({ type: "error", text: "Todos los campos son obligatorios." });
       return;
     }
-    if (form.password !== form.confirmPassword) {
+    if (form.contraseña !== form.confirmarContraseña) {
       setMessage({ type: "error", text: "Las contraseñas no coinciden." });
       return;
     }

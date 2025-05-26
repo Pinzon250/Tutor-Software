@@ -16,6 +16,10 @@ import Test from './pages/Modulos/Test';
 import TestModeloOsi from './pages/Modulos/TestForm/TestModeloOsi';
 import Activities from './pages/Modulos/Activities';
 import ActividadModeloOSI from './pages/Modulos/Activities/ActivitiesModeloOsi';
+import AdminLayout from './admin/components/layouts/AdminLayout';
+import AdminHome from './admin/AdminHome';
+import Students from './admin/components/modules/Students';
+import Dashboard from './admin/components/modules/Dashboard';
 
 function App() {
   return (
@@ -31,8 +35,19 @@ function App() {
         <Route path="/test/:id" element={<ProtectedRoute><Layout><TestModeloOsi /></Layout></ProtectedRoute>} />
         <Route path="/activities" element={<ProtectedRoute><Layout><Activities /></Layout></ProtectedRoute>} />
         <Route path="/activities/:id" element={<ProtectedRoute><Layout><ActividadModeloOSI /></Layout></ProtectedRoute>} />
-
         <Route path='/forgot' element={<Forgot />} />
+
+        <Route path="/admin" element={
+          <ProtectedRoute role="profesor">
+            <AdminLayout />
+          </ProtectedRoute>
+        }>
+          <Route index element={<AdminHome />} /> {/* Este es el Dashboard principal */}
+          <Route path="students" element={<Students />} />
+          {/* <Route path="evaluations" element={<Evaluations />} />
+          <Route path="content" element={<ContentManagement />} />
+          <Route path="learning-paths" element={<LearningPaths />} /> */}
+        </Route>
       </Routes>
       <ToastContainer />
     </>
