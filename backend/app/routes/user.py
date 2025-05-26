@@ -14,12 +14,6 @@ router = APIRouter(
     tags=["Users"]   
 )
 
-# Get all users
-@router.get("/")
-def get_users(db: Session = Depends(get_db)):
-    data = db.query(db_users.User).all()
-    return data
-
 # Create a new user
 @router.post("/register")
 def create_user(user: UserCreate, db: Session = Depends(get_db)):
@@ -56,36 +50,15 @@ def login_user(user_login: UserLogin, db: Session = Depends(get_db)):
             detail="User not found"
         )
     
-    token = create_access_token(data={"sub": user.correo, "name": user.nombres})
-    return {"access_token": token, "token_type": "bearer"}
+    token = create_access_token(data={"sub": user.correo, "name": user.nombres, "cargo": user.cargo})
 
-# Get User by ID
-@router.post("/{user_id}")
-def get_user(user_id: int, db: Session = Depends(get_db)):
-    user = db.query(db_users.User).filter(db_users.User.id == user_id).first()
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
-    return user
-
-# Delete user by ID
-@router.delete("/{user_id}")
-def delete_user(user_id: int, db: Session = Depends(get_db)):
-    user = db.query(UserModel).filter(UserModel.id == user_id).first()
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
-    db.delete(user)
-    db.commit()
-    return {"message": "User delete successfully"}
-
-# Update user by ID
-@router.put("/{user_id}")
-def update_user(user_id: int, user: User, db: Session = Depends(get_db)):
-    existing_user = db.query(UserModel).filter(UserModel.id == user_id).first()
-    if not existing_user:
-        raise HTTPException(status_code=404, detail="User not found")
-    existing_user.nombres = user.nombres
-    existing_user.correo = user.correo
-    existing_user.contraseña = user.contraseña
-    db.commit()
-    db.refresh(existing_user)
-    return {"message": "User updated successfully"}
+    return {
+        "access_token": token,
+        "token_type": "bearer",
+        "user": {
+            "id": user.id,
+            "correo": user.correo,
+            "nombres": user.nombres,
+            "cargo": user.cargo
+        }
+    }

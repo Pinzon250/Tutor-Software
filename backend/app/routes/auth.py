@@ -1,6 +1,11 @@
 from passlib.context import CryptContext
 from jose import jwt
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 
 #Config
 SECRET_KEY = "as84sfg842qwt855da1q85fjiyupg521fth82"
@@ -25,3 +30,4 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None):
 
 def hash_password(password: str) -> str:
     return pwd_context.hash(password)
+
