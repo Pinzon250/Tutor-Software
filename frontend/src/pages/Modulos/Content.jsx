@@ -52,10 +52,10 @@ export default function Contenidos() {
               <div
                 className="backdrop-blur-[20px] border border-white/10 bg-white/5 hover:bg-white/10 rounded-xl p-6 h-70 transition-all duration-300 hover:scale-[1.02] shadow-md"
               >
-                <h2 className="text-2xl font-semibold mb-2">Modelo OSi</h2>
+                <h2 className="text-2xl font-semibold mb-2">Modelo OSI</h2>
                 <div
                   onClick={() => navigate("/ModeloOsi")}
-                  className="inline-block mt-4 text-sm bg-green-700 hover:bg-green-800 px-4 py-2 rounded-full transition"
+                  className="inline-block mt-4 cursor-pointer text-sm bg-green-700 hover:bg-green-800 px-4 py-2 rounded-full transition"
                 >
                   Ver contenido
                 </div>
@@ -66,8 +66,8 @@ export default function Contenidos() {
               >
                 <h2 className="text-2xl font-semibold mb-2">Topoligias de Red</h2>
                 <div
-                  onClick={() => navigate("/TopologiasRed")}
-                  className="inline-block mt-4 text-sm bg-green-700 hover:bg-green-800 px-4 py-2 rounded-full transition"
+                  onClick={() => navigate("/topologiasred")}
+                  className="inline-block mt-4 text-sm cursor-pointer bg-green-700 hover:bg-green-800 px-4 py-2 rounded-full transition"
                 >
                   Ver contenido
                 </div>
@@ -78,7 +78,7 @@ export default function Contenidos() {
                 <h2 className="text-2xl font-semibold mb-2">Areas de cobertura</h2>
                 <div
                   onClick={() => navigate("/AreaCobertura")}
-                  className="inline-block mt-4 text-sm bg-green-700 hover:bg-green-800 px-4 py-2 rounded-full transition"
+                  className="inline-block mt-4 text-sm bg-green-700 cursor-pointer hover:bg-green-800 px-4 py-2 rounded-full transition"
                 >
                   Ver contenido
                 </div>
@@ -89,7 +89,7 @@ export default function Contenidos() {
                 <h2 className="text-2xl font-semibold mb-2">Tipos de Modulación</h2>
                 <div
                   onClick={() => navigate("/TiposModulacion")}
-                  className="inline-block mt-4 text-sm bg-green-700 hover:bg-green-800 px-4 py-2 rounded-full transition"
+                  className="inline-block mt-4 text-sm bg-green-700 cursor-pointer hover:bg-green-800 px-4 py-2 rounded-full transition"
                 >
                   Ver contenido
                 </div>
@@ -100,7 +100,7 @@ export default function Contenidos() {
                 <h2 className="text-2xl font-semibold mb-2">Direccionamiento IP</h2>
                 <div
                   onClick={() => navigate("/DirrecionamientoIP")}
-                  className="inline-block mt-4 text-sm bg-green-700 hover:bg-green-800 px-4 py-2 rounded-full transition"
+                  className="inline-block mt-4 text-sm bg-green-700 cursor-pointer hover:bg-green-800 px-4 py-2 rounded-full transition"
                 >
                   Ver contenido
                 </div>
