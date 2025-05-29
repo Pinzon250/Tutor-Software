@@ -8,9 +8,9 @@ function PublicRoute({ children }) {
   if (token) {
     let message = null;
     if (location.pathname === "/login") {
-        message = "Ya estás logueado.";
+        message = "Ya haz iniciado sesion.";
     } else if (location.pathname === "/register") {
-        message = "Ya tienes una cuenta.";
+        message = "Ya estas registrado";
     }
 
     return (<Navigate to="/home" replace state={{ message }}/>);

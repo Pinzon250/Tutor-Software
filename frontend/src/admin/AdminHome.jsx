@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from "chart.js";
 import { Users, FileText, Book, Layers, BarChart3, Blend } from "lucide-react";
+import { jwtDecode } from "jwt-decode";
+import { toast } from "react-toastify";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
 
@@ -50,32 +52,63 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
+  const navigate = useNavigate();
+  const [userName, setUserName] = useState("");
+  const location = useLocation();
+  const toastShownRef = useRef(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        setUserName(decoded.name);
+      } catch (error) {
+        console.error("Token no válido", error);
+        setUserName("Estudiante");
+      }
+    }
+    if (location.state?.message && !toastShownRef.current) {
+      toast.info(location.state.message);
+      toastShownRef.current= true;
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location, navigate]);
+
   const modules = [
     { name: "Estudiantes", icon: <Users size={36} />, path: "/admin/students", count: stats.totalEstudiantes, color: "bg-green-100 text-green-700" },
     { name: "Evaluaciones", icon: <FileText size={36} />, path: "/admin/evaluaciones", count: stats.totalEvaluaciones, color: "bg-blue-100 text-blue-700" },
     { name: "Contenidos", icon: <Book size={36} />, path: "/admin/contenidos", color: "bg-yellow-100 text-yellow-700" },
-    { name: "Rutas", icon: <Layers size={36} />, path: "/admin/rutas", color: "bg-purple-100 text-purple-700" },
+    { name: "Rutas", icon: <Layers size={36} />, path: "/admin/rutas", count: stats.totalEvaluaciones, color: "bg-purple-100 text-purple-700" },
     { name: "Actividades", icon: <Blend size={36} />, path: "/admin/actividades", color: "bg-pink-100 text-pink-700" },
   ];
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">Dashboard del Profesor</h1>
+      <h1 className="text-3xl font-semibold text-green-600 mb-6">Bienvenido, Profesor <span className="font-bold">{userName}</span></h1>
+      <div className="border-t mb-7 border-green-300"></div>
 
       {/* Tarjetas de módulos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        {modules.map((module) => (
-          <Link to={module.path} key={module.name} className={`flex flex-col items-center justify-center p-6 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105 ${module.color}`}>
-            {module.icon}
-            <span className="mt-2 text-xl font-semibold">{module.name}</span>
-            {module.count !== undefined && <span className="text-2xl font-bold">{module.count}</span>}
-          </Link>
-        ))}
-      </div>
+  {modules.map((module, index) => (
+    <Link
+      to={module.path}
+      key={module.name}
+      className={`flex flex-col items-center justify-center p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 ${module.color} ${
+        module.name === "Estudiantes" ? "row-span-2" : ""
+      }`}
+    >
+      {module.icon}
+      <span className="mt-2 text-xl font-semibold">{module.name}</span>
+      {module.count !== undefined && <span className="text-2xl font-bold">{module.count}</span>}
+    </Link>
+  ))}
+</div>
+
 
       {/* Gráficas más pequeñas y bien dispuestas */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white col-span-2 p-4 rounded-xl shadow flex flex-col items-center">
+        <div className="bg-white col-span-2 p-4 rounded-xl shadow-lg flex flex-col items-center">
           <h2 className="text-lg font-semibold mb-2">Progreso General</h2>
           {barData.labels.length > 0 ? (
             <div className="w-full h-64">
@@ -86,8 +119,8 @@ const Dashboard = () => {
           )}
         </div>
 
-        <div className="bg-white p-4 rounded-xl shadow flex flex-col items-center">
-          <h2 className="text-lg row-span-3 font-semibold mb-2">Estado de Evaluaciones</h2>
+        <div className="bg-white p-4 rounded-xl shadow-lg flex flex-col items-center">
+          <h2 className="text-lg font-semibold mb-2">Estado de Evaluaciones</h2>
           {pieData.labels.length > 0 ? (
             <div className="w-full h-64">
               <Doughnut data={pieData} options={{ responsive: true, maintainAspectRatio: false }} />

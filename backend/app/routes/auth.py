@@ -5,11 +5,9 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-
-
 #Config
-SECRET_KEY = "as84sfg842qwt855da1q85fjiyupg521fth82"
-ALGORITHM = "HS256" 
+SECRET_KEY = os.getenv("AUTH_SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM")
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
 #Password hashing
