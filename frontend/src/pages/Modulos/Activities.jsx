@@ -1,17 +1,10 @@
 
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import VantaRingsBackground from "../../components/backgrounds/VantaRingsBackground";
 
 const Activities = () => {
-  const [actividades, setActividades] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setActividades([
-      { id: 1, titulo: "Modelo OSI"},
-    ]);
-  }, []);
 
   return (
     <div className="relative min-h-screen flex flex-col text-white">
@@ -27,16 +20,32 @@ const Activities = () => {
           <h1 className="text-4xl font-bold pt-10 mb-4 flex items-center gap-2">
             Actividades Disponibles</h1>
       <ul className="space-y-4">
-        {actividades.map((act) => (
           <li
-            key={act.id}
             className="backdrop-blur-[20px] border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer rounded-xl p-6 mt-10 transition-all duration-300 hover:scale-[1.02] shadow-md"
-            onClick={() => navigate(`/activities/${act.id}`)}
+            onClick={() => navigate(`/ActividadAreasCobertura`)}
           >
-            <h2 className="text-xl text-white font-semibold">{act.titulo}</h2>
+            <h2 className="text-xl text-white font-semibold">Areas de cobertura</h2>
           </li>
-        ))}
       </ul>
+
+      <ul className="space-y-4">
+          <li
+            className="backdrop-blur-[20px] border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer rounded-xl p-6 mt-10 transition-all duration-300 hover:scale-[1.02] shadow-md"
+            onClick={() => navigate(`/ActividadModeloOsi`)}
+          >
+            <h2 className="text-xl text-white font-semibold">Modelo Osi</h2>
+          </li>
+      </ul>
+
+      <ul className="space-y-4">
+          <li
+            className="backdrop-blur-[20px] border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer rounded-xl p-6 mt-10 transition-all duration-300 hover:scale-[1.02] shadow-md"
+            onClick={() => navigate(`/ActividadTopologiasRed`)}
+          >
+            <h2 className="text-xl text-white font-semibold">Topologias de Red</h2>
+          </li>
+      </ul>
+      
     </div>
     </main>
   </div>

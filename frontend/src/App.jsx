@@ -17,12 +17,14 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Layout from './layouts/Layout';
 import Test from './pages/Modulos/Test';
-import TestModeloOsi from './pages/Modulos/TestForm/TestModeloOsi';
+import TestFormularios from './pages/Modulos/TestForm/TestFormularios';
 import Activities from './pages/Modulos/Activities';
 import ActividadModeloOSI from './pages/Modulos/Activities/ActivitiesModeloOsi';
 import AdminLayout from './admin/components/layouts/AdminLayout';
 import AdminHome from './admin/AdminHome';
 import Students from './admin/components/modules/Students';
+import ActividadAreasCobertura from './pages/Modulos/Activities/ActividadAreasCobertura';
+import ActividadTopologiasRed from './pages/Modulos/Activities/ActividadTopologiasRed';
 
 function App() {
   return (
@@ -47,12 +49,15 @@ function App() {
 
         {/* EVALUACIONES */}
         <Route path="/test" element={<ProtectedRoute><Layout><Test /></Layout></ProtectedRoute>} />
-        <Route path="/test/:id" element={<ProtectedRoute><Layout><TestModeloOsi /></Layout></ProtectedRoute>} />
+        <Route path="/test/:id" element={<ProtectedRoute><Layout><TestFormularios /></Layout></ProtectedRoute>} />
 
 
         {/* ACTIVIDADES */}
         <Route path="/activities" element={<ProtectedRoute><Layout><Activities /></Layout></ProtectedRoute>} />
-        <Route path="/activities/:id" element={<ProtectedRoute><Layout><ActividadModeloOSI /></Layout></ProtectedRoute>} />
+        <Route path="/actividadmodeloosi" element={<ProtectedRoute><Layout><ActividadModeloOSI/></Layout></ProtectedRoute>} />
+        <Route path="/actividadareascobertura" element={<ProtectedRoute><Layout><ActividadAreasCobertura /></Layout></ProtectedRoute>} />
+        <Route path="/actividadtopologiasred" element={<ProtectedRoute><Layout><ActividadTopologiasRed /></Layout></ProtectedRoute>} />
+        
 
         <Route path="/admin" element={
           <ProtectedRoute role="profesor">

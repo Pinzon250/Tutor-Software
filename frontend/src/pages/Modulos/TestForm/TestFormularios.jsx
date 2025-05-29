@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import VantaRingsBackground from "../../../components/backgrounds/VantaRingsBackground";
 
-const TestModeloOsi = () => {
+const TestFormularios = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [preguntas, setPreguntas] = useState([]);
@@ -11,12 +11,23 @@ const TestModeloOsi = () => {
   const [puntuacion, setPuntuacion] = useState(null);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
+  const [titulo, setTitulo] = useState("Evaluación");
 
   useEffect(() => {
     axios.get(`http://localhost:8000/evaluaciones/${id}`)
       .then((res) => {
         setPreguntas(res.data.preguntas);
         setRespuestas(Array(res.data.preguntas.length).fill(null));
+
+        // Definir el título dependiendo del ID
+        if (id === "1") {
+          setTitulo("Evaluación Modelo OSI");
+        } else if (id === "2") {
+          setTitulo("Evaluación Áreas de Cobertura");
+        } else if (id === "3") {
+          setTitulo("Evaluación Topologias de Red ");
+        }
+
         setCargando(false);
       })
       .catch((err) => {
@@ -35,7 +46,7 @@ const TestModeloOsi = () => {
   const enviar = () => {
     const payload = {
       evaluacion_id: parseInt(id),
-      usuario_id: 1, // TODO: obtener dinámicamente si usas autenticación
+      usuario_id: 1, // Cambiar por el usuario real si tienes login
       respuestas: respuestas.map((seleccion, index) => ({
         pregunta_id: index,
         seleccion,
@@ -64,13 +75,13 @@ const TestModeloOsi = () => {
     <div className="relative min-h-screen flex flex-col text-white">
       <VantaRingsBackground />
       <div 
-         onClick={() => navigate('/home')} 
+         onClick={() => navigate('/test')} 
          className="absolute top-4 left-4 cursor-pointer text-white bg-green-600 hover:bg-green-700 rounded-full p-2 w-30 mt-30 text-center shadow-lg transition duration-300 z-40"
         >
         Regresar
         </div>
       <div className="mt-30 border border-green-900 w-200 index-0 m-auto p-10 backdrop-blur-[30px] rounded-xl">
-        <h1 className="text-5xl font-bold text-center mb-4">Evaluación Modelo OSI</h1>
+        <h1 className="text-5xl font-bold text-center mb-4">{titulo}</h1>
 
         {puntuacion === null ? (
           <form className="space-y-6 mt-10">
@@ -106,8 +117,8 @@ const TestModeloOsi = () => {
             <h2 className="text-xl text-center font-bold">Tu puntuación: {puntuacion}%</h2>
             <p className="text-center">
               {puntuacion >= 80
-                ? "¡Excelente! Has subido de nivel. 🏆"
-                : "Puedes volver a intentarlo para mejorar tu puntuación."}
+                ? "¡Excelente! Has comprendido el tema. 🏆"
+                : "Has completado la evaluación. Puedes estudiar más para mejorar tus conocimientos."}
             </p>
           </div>
         )}
@@ -116,4 +127,4 @@ const TestModeloOsi = () => {
   );
 };
 
-export default TestModeloOsi;
+export default TestFormularios;

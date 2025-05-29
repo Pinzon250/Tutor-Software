@@ -16,6 +16,9 @@ export default function ActividadModeloOSI() {
   const [stack, setStack] = useState(Array(7).fill(null));
   const [modalLayer, setModalLayer] = useState(null);
   const [completion, setCompletion] = useState(false);
+  const [intentos, setIntentos] = useState(0);
+  const [notas, setNotas] = useState([]);
+  const maxIntentos = 3;
 
   useEffect(() => {
     resetGame();
@@ -30,6 +33,7 @@ export default function ActividadModeloOSI() {
   }
 
   function handleDrop(index, item) {
+    if (completion || intentos >= maxIntentos) return; // Bloquear si se acabaron los intentos
     if (stack[index]) return;
     if (item.order === 7 - index) {
       const newStack = [...stack];
@@ -40,28 +44,40 @@ export default function ActividadModeloOSI() {
       setAvailableLayers(newAvailable);
 
       if (newStack.every(s => s !== null)) {
+        // Calcular nota al finalizar el intento
+        const correctas = newStack.filter((layer, idx) => layer.order === 7 - idx).length;
+        const notaActual = (correctas / 7) * 5;
+        setNotas(prev => [...prev, notaActual.toFixed(2)]);
+        setIntentos(prev => prev + 1);
         setCompletion(true);
       }
     } else {
-      alert('Incorrect! Try again.');
+      alert('Incorrecto! Intenta de nuevo.');
     }
   }
 
   return (
     <div className="mt-20 p-6 space-y-6">
-        <VantaRingsBackground />
+      <VantaRingsBackground />
       <header className="text-center">
         <h1 className="text-3xl font-bold">Aprendizaje interactivo del modelo OSI</h1>
         <p className="text-white mt-2">Coloca las capas a su posición correcta en el Modelo OSI.</p>
+        <p className="text-white mt-2 font-semibold">Intentos: {intentos} / {maxIntentos}</p>
       </header>
 
       {completion && (
         <div className="bg-green-100 border border-green-400 p-4 rounded">
-          <h2 className="text-xl font-semibold text-green-800">Felicidades!</h2>
-          <p className="text-green-700">Armaste correctamente el modelo OSI!</p>
-          <button className="mt-2 px-4 py-1 bg-green-600 text-white rounded" onClick={resetGame}>
-            Jugar otra vez
-          </button>
+          <h2 className="text-xl font-semibold text-green-800">Intento completado!</h2>
+          <p className="text-green-700">Nota obtenida: {notas[notas.length - 1]} / 5</p>
+          {intentos < maxIntentos ? (
+            <button className="mt-2 px-4 py-1 bg-green-600 text-white rounded" onClick={resetGame}>
+              Siguiente intento
+            </button>
+          ) : (
+            <p className="mt-2 text-green-700 font-semibold">
+              Evaluación finalizada. Nota promedio: {(notas.reduce((a, b) => parseFloat(a) + parseFloat(b), 0) / maxIntentos).toFixed(2)} / 5
+            </p>
+          )}
         </div>
       )}
 

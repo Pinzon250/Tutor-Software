@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import RINGS from "vanta/dist/vanta.rings.min.js";
 import * as THREE from "three";
 
-const VantaNetBackground = () => {
+const VantaRingsBackground = () => {
   const vantaRef = useRef(null);
   const [vantaEffect, setVantaEffect] = useState(null);
 
@@ -36,4 +36,4 @@ const VantaNetBackground = () => {
 );
 };
 
-export default VantaNetBackground;
+export default VantaRingsBackground;

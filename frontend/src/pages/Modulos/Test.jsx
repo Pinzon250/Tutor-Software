@@ -9,7 +9,9 @@ const Test = () => {
 
   useEffect(() => {
     setEvaluaciones([
-      { id: 1, titulo: "Modelo OSI"},
+      { id: 1, titulo: "Modelo OSI" },
+      { id: 2, titulo: "Areas de cobertura" },
+      { id: 3, titulo: "Topologias de Red"}
     ]);
   }, []);
 

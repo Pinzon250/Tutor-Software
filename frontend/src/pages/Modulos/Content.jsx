@@ -83,7 +83,7 @@ export default function Contenidos() {
                   Ver contenido
                 </div>
               </div>
-              <div
+              {/* <div
                 className="backdrop-blur-[20px] border border-white/10 bg-white/5 hover:bg-white/10 rounded-xl p-6 h-70 transition-all duration-300 hover:scale-[1.02] shadow-md"
               >
                 <h2 className="text-2xl font-semibold mb-2">Tipos de Modulación</h2>
@@ -104,7 +104,7 @@ export default function Contenidos() {
                 >
                   Ver contenido
                 </div>
-              </div>
+              </div> */}
           </div>
           </div>
       </main>
