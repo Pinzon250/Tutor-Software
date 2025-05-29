@@ -1,7 +1,7 @@
 from app.routes import user
 from app.database.db import Base, engine
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes.modulos import content, test
+from app.routes.modulos import test
 from app.routes.admin import dashboard, students
 
 
@@ -21,7 +21,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(content.router)
 app.include_router(user.router)
 app.include_router(test.router)
 app.include_router(dashboard.router)
