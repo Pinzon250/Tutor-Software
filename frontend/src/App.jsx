@@ -11,7 +11,7 @@ import Content from './pages/Modulos/Content';
 import AreaCobertura from './pages/Modulos/Content/AreaCobertura';
 import DireccionamientoIp from './pages/Modulos/Content/DireccionamientoIP';
 import ModeloOsi from './pages/Modulos/Content/ModeloOsi';
-import TiposModulacion from './pages/Modulos/Content/TiposModulacion';
+import TiposDeModulacion from './pages/Modulos/Content/TiposDeModulacion';
 import TopologíasRed from './pages/Modulos/Content/TopologiasRed';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,11 +20,14 @@ import Test from './pages/Modulos/Test';
 import TestFormularios from './pages/Modulos/TestForm/TestFormularios';
 import Activities from './pages/Modulos/Activities';
 import ActividadModeloOSI from './pages/Modulos/Activities/ActivitiesModeloOsi';
+import ActividadDireccionamientoIP from './pages/Modulos/Activities/ActividadDireccionamientoIP';
+import ActividadTiposDeModulacion from './pages/Modulos/Activities/ActividadTiposDeModulacion';
 import AdminLayout from './admin/components/layouts/AdminLayout';
 import AdminHome from './admin/AdminHome';
 import Students from './admin/components/modules/Students';
 import ActividadAreasCobertura from './pages/Modulos/Activities/ActividadAreasCobertura';
 import ActividadTopologiasRed from './pages/Modulos/Activities/ActividadTopologiasRed';
+
 
 function App() {
   return (
@@ -41,8 +44,8 @@ function App() {
         {/* CONTENIDOS */}
         <Route path='/content' element={<ProtectedRoute><Layout><Content /></Layout></ProtectedRoute>} />
         <Route path='/modeloosi' element={<ProtectedRoute><Layout><ModeloOsi /></Layout></ProtectedRoute>} />
-        <Route path='/direccionamientoip' element={<ProtectedRoute><Layout><DireccionamientoIp /></Layout></ProtectedRoute>} />
-        <Route path='/tiposmodulacion' element={<ProtectedRoute><Layout><TiposModulacion /></Layout></ProtectedRoute>} />
+        <Route path='/direccionamiento-ip' element={<ProtectedRoute><Layout><DireccionamientoIp /></Layout></ProtectedRoute>} />
+        <Route path='/tipos-de-modulacion' element={<ProtectedRoute><Layout><TiposDeModulacion /></Layout></ProtectedRoute>} />
         <Route path='/topologiasred' element={<ProtectedRoute><Layout><TopologíasRed /></Layout></ProtectedRoute>} />
         <Route path='/areacobertura' element={<ProtectedRoute><Layout><AreaCobertura /></Layout></ProtectedRoute>} />
 
@@ -57,6 +60,9 @@ function App() {
         <Route path="/actividadmodeloosi" element={<ProtectedRoute><Layout><ActividadModeloOSI/></Layout></ProtectedRoute>} />
         <Route path="/actividadareascobertura" element={<ProtectedRoute><Layout><ActividadAreasCobertura /></Layout></ProtectedRoute>} />
         <Route path="/actividadtopologiasred" element={<ProtectedRoute><Layout><ActividadTopologiasRed /></Layout></ProtectedRoute>} />
+        <Route path='/actividad-direccionamiento-ip' element={<ProtectedRoute><Layout><ActividadDireccionamientoIP /></Layout></ProtectedRoute>} />
+        <Route path='/actividad-tipos-de-modulacion' element={<ProtectedRoute><Layout><ActividadTiposDeModulacion /></Layout></ProtectedRoute>} />
+
         
 
         <Route path="/admin" element={

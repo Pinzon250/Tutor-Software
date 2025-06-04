@@ -83,28 +83,30 @@ export default function Contenidos() {
                   Ver contenido
                 </div>
               </div>
-              {/* <div
-                className="backdrop-blur-[20px] border border-white/10 bg-white/5 hover:bg-white/10 rounded-xl p-6 h-70 transition-all duration-300 hover:scale-[1.02] shadow-md"
-              >
-                <h2 className="text-2xl font-semibold mb-2">Tipos de Modulación</h2>
-                <div
-                  onClick={() => navigate("/TiposModulacion")}
-                  className="inline-block mt-4 text-sm bg-green-700 cursor-pointer hover:bg-green-800 px-4 py-2 rounded-full transition"
-                >
-                  Ver contenido
-                </div>
-              </div>
               <div
                 className="backdrop-blur-[20px] border border-white/10 bg-white/5 hover:bg-white/10 rounded-xl p-6 h-70 transition-all duration-300 hover:scale-[1.02] shadow-md"
               >
                 <h2 className="text-2xl font-semibold mb-2">Direccionamiento IP</h2>
                 <div
-                  onClick={() => navigate("/DirrecionamientoIP")}
+                 onClick={() => navigate("/direccionamiento-ip")}
+                 className="inline-block mt-4 cursor-pointer text-sm bg-green-700 hover:bg-blue-800 px-4 py-2 rounded-full transition"
+              >
+                  Ver contenido
+                </div>
+              </div>
+
+              <div
+                className="backdrop-blur-[20px] border border-white/10 bg-white/5 hover:bg-white/10 rounded-xl p-6 h-70 transition-all duration-300 hover:scale-[1.02] shadow-md"
+              >
+                <h2 className="text-2xl font-semibold mb-2">Tipos de Modulación</h2>
+                <div
+                  onClick={() => navigate("/tipos-de-modulacion")}
                   className="inline-block mt-4 text-sm bg-green-700 cursor-pointer hover:bg-green-800 px-4 py-2 rounded-full transition"
                 >
                   Ver contenido
                 </div>
-              </div> */}
+              </div>
+               
           </div>
           </div>
       </main>
