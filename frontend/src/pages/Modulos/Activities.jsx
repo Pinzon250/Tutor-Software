@@ -45,7 +45,25 @@ const Activities = () => {
             <h2 className="text-xl text-white font-semibold">Topologias de Red</h2>
           </li>
       </ul>
-      
+
+      <ul className="space-y-4">
+          <li
+            className="backdrop-blur-[20px] border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer rounded-xl p-6 mt-10 transition-all duration-300 hover:scale-[1.02] shadow-md"
+            onClick={() => navigate("/actividad-direccionamiento-ip")}
+          >
+            <h2 className="text-xl text-while font-semibold">Direccionamiento IP</h2>
+          </li>
+      </ul>
+
+      <ul className="space-y-4">
+          <li
+            className="backdrop-blur-[20px] border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer rounded-xl p-6 mt-10 transition-all duration-300 hover:scale-[1.02] shadow-md"
+            onClick={() => navigate("/actividad-tipos-de-modulacion")}
+          >
+            <h2 className="text-xl font-semibold mb-2">Tipos de Modulación</h2>
+          </li>
+      </ul>
+ 
     </div>
     </main>
   </div>
