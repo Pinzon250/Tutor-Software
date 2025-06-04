@@ -97,7 +97,7 @@ function LoginForm() {
             onClick={() => navigate("/forgot")}
             className="text-green-600 ml-5 cursor-pointer hover:text-green-500 font-semibold ml-1 transition duration-300"
           >
-            Olvista la contraseña?
+            Olvidaste la contraseña?
           </a>
           <p>
             No tienes cuenta?
