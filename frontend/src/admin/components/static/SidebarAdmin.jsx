@@ -20,17 +20,17 @@ const SidebarAdmin = () => {
         <NavLink to="/admin/students" className={({ isActive }) => `${linkClass} ${isActive ? activeClass : ""}`}>
           <FaUserGraduate /> <span>Estudiantes</span>
         </NavLink>
-        <NavLink to="/admin/contenidos" className={({ isActive }) => `${linkClass} ${isActive ? activeClass : ""}`}>
+        <NavLink to="/admin/content" className={({ isActive }) => `${linkClass} ${isActive ? activeClass : ""}`}>
           <FaBook /> <span>Contenidos</span>
         </NavLink>
-        <NavLink to="/admin/actividades" className={({ isActive }) => `${linkClass} ${isActive ? activeClass : ""}`}>
+        <NavLink to="/admin/activities" className={({ isActive }) => `${linkClass} ${isActive ? activeClass : ""}`}>
           <FaTasks /> <span>Actividades</span>
         </NavLink>
         
-        <NavLink to="/admin/evaluaciones" className={({ isActive }) => `${linkClass} ${isActive ? activeClass : ""}`}>
+        <NavLink to="/admin/evaluations" className={({ isActive }) => `${linkClass} ${isActive ? activeClass : ""}`}>
           <FaClipboardList /> <span>Evaluaciones</span>
         </NavLink>
-        <NavLink to="/admin/rutas" className={({ isActive }) => `${linkClass} ${isActive ? activeClass : ""}`}>
+        <NavLink to="/admin/learning-paths" className={({ isActive }) => `${linkClass} ${isActive ? activeClass : ""}`}>
           <FaProjectDiagram /> <span>Rutas de Aprendizaje</span>
         </NavLink>
       </nav>

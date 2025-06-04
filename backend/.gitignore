@@ -29,3 +29,5 @@ env/
 build/
 dist/
 *.spec
+
+todo.txt

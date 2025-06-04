@@ -25,6 +25,12 @@ import AdminHome from './admin/AdminHome';
 import Students from './admin/components/modules/Students';
 import ActividadAreasCobertura from './pages/Modulos/Activities/ActividadAreasCobertura';
 import ActividadTopologiasRed from './pages/Modulos/Activities/ActividadTopologiasRed';
+import ActivitiesAdmin from './admin/components/modules/ActivitiesAdmin';
+import ContentManagement from './admin/components/modules/ContentManagement';
+import Evaluations from './admin/components/modules/Evaluations';
+import LearningPaths from './admin/components/modules/LearningPaths';
+
+
 
 function App() {
   return (
@@ -66,9 +72,10 @@ function App() {
         }>
           <Route index element={<AdminHome />} /> {/* Este es el Dashboard principal */}
           <Route path="students" element={<Students />} />
-          {/* <Route path="evaluations" element={<Evaluations />} />
+          <Route path="evaluations" element={<Evaluations />} />
           <Route path="content" element={<ContentManagement />} />
-          <Route path="learning-paths" element={<LearningPaths />} /> */}
+          <Route path="learning-paths" element={<LearningPaths />} />
+          <Route path="activities" element={<ActivitiesAdmin />} />
         </Route>
       </Routes>
       <ToastContainer />

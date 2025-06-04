@@ -77,10 +77,10 @@ const Dashboard = () => {
 
   const modules = [
     { name: "Estudiantes", icon: <Users size={36} />, path: "/admin/students", count: stats.totalEstudiantes, color: "bg-green-100 text-green-700" },
-    { name: "Evaluaciones", icon: <FileText size={36} />, path: "/admin/evaluaciones", count: stats.totalEvaluaciones, color: "bg-blue-100 text-blue-700" },
-    { name: "Contenidos", icon: <Book size={36} />, path: "/admin/contenidos", color: "bg-yellow-100 text-yellow-700" },
-    { name: "Rutas", icon: <Layers size={36} />, path: "/admin/rutas", count: stats.totalEvaluaciones, color: "bg-purple-100 text-purple-700" },
-    { name: "Actividades", icon: <Blend size={36} />, path: "/admin/actividades", color: "bg-pink-100 text-pink-700" },
+    { name: "Evaluaciones", icon: <FileText size={36} />, path: "/admin/evaluations", count: stats.totalEvaluaciones, color: "bg-blue-100 text-blue-700" },
+    { name: "Contenidos", icon: <Book size={36} />, path: "/admin/content", color: "bg-yellow-100 text-yellow-700" },
+    { name: "Rutas", icon: <Layers size={36} />, path: "/admin/learning-paths", count: stats.totalEvaluaciones, color: "bg-purple-100 text-purple-700" },
+    { name: "Actividades", icon: <Blend size={36} />, path: "/admin/activities", color: "bg-pink-100 text-pink-700" },
   ];
 
   return (

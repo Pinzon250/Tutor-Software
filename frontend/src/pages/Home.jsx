@@ -42,16 +42,6 @@ export default function Home() {
           <p className=" text-lg text-white mb-6 text-start">
             Sigue aprendiendo y sube de nivel.
           </p>
-
-          {/* Progress bar */}
-          <div className="text-left text-white font-medium mb-2">
-            Progreso de aprendizaje: Nivel 1
-          </div>
-          <div className="w-full bg-white rounded-full h-3 mb-8">
-            
-            <div className="bg-green-600 h-3 rounded-full w-[0%]"></div>
-          </div>
-
           <div className="text-white p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               
@@ -84,13 +74,6 @@ export default function Home() {
                 <h2 className="text-xl font-semibold mb-2">Resolver ejercicios</h2>
                 <p className="text-sm text-white/80">
                   Practica resolviendo problemas y ejercicios interactivos.
-                </p>
-              </div>
-
-              <div className="select-none bg-white/5 backdrop-blur-[30px] hover:scale-105 hover:bg-white/10 hover:shadow-lg transition-all duration-300 p-6 rounded-xl border border-green-900 shadow-md">
-                <h2 className="text-xl font-semibold mb-2">Visualizar progreso</h2>
-                <p className="text-sm text-white/80">
-                  Revisa tu avance y mejora continuamente.
                 </p>
               </div>
             </div>
